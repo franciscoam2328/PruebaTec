@@ -1,4 +1,4 @@
-import { Character } from '../api/apiSlice';
+import type { Character } from '../api/apiSlice';
 import { Link } from 'react-router-dom';
 
 interface CharacterCardProps {

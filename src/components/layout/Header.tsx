@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { Menu, Search } from 'lucide-react';
 
 export function Header() {
