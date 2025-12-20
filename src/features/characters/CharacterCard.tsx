@@ -7,32 +7,45 @@ interface CharacterCardProps {
 
 export function CharacterCard({ character }: CharacterCardProps) {
     return (
-        <Link to={`/character/${character.id}`} className="block group">
-            <div className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                <div className="relative h-64 overflow-hidden bg-gray-100">
+        <Link to={`/character/${character.id}`} className="block group h-full">
+            <div className="bg-slate-800 rounded-lg overflow-hidden shadow-lg hover:shadow-yellow-500/20 transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col border border-slate-700">
+                {/* Image Section - White/Light background with pattern effect */}
+                <div className="relative h-80 overflow-hidden bg-white flex items-center justify-center p-6">
+                    <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]"></div>
                     <img
                         src={character.image}
                         alt={character.name}
-                        className="w-full h-full object-contain p-4 group-hover:scale-110 transition-transform duration-500"
+                        className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500 drop-shadow-xl z-10"
                         loading="lazy"
                     />
-                    <div className="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-md">
-                        Ki: {character.ki}
-                    </div>
                 </div>
-                <div className="p-5">
-                    <h3 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-orange-600 transition-colors">
-                        {character.name}
-                    </h3>
-                    <p className="text-sm text-gray-500 mb-3">{character.race} - {character.gender}</p>
 
-                    <div className="flex items-center justify-between mt-4">
-                        <span className="text-xs font-medium px-2 py-1 bg-blue-50 text-blue-600 rounded-md">
-                            {character.affiliation}
-                        </span>
-                        <span className="text-orange-500 text-sm font-medium group-hover:translate-x-1 transition-transform">
-                            View Details →
-                        </span>
+                {/* Content Section - Dark background */}
+                <div className="p-5 flex-1 flex flex-col gap-3">
+                    <div>
+                        <h3 className="text-2xl font-bold text-white mb-0.5 group-hover:text-yellow-400 transition-colors">
+                            {character.name}
+                        </h3>
+                        <p className="text-yellow-500 font-semibold text-sm">
+                            {character.race} - {character.gender}
+                        </p>
+                    </div>
+
+                    <div className="space-y-3 mt-2">
+                        <div>
+                            <p className="text-gray-400 text-xs font-bold uppercase tracking-wider">Base KI:</p>
+                            <p className="text-yellow-500 font-bold text-lg leading-tight">{character.ki}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-gray-400 text-xs font-bold uppercase tracking-wider">Total KI:</p>
+                            <p className="text-yellow-500 font-bold text-lg leading-tight">{character.maxKi}</p>
+                        </div>
+
+                        <div>
+                            <p className="text-gray-400 text-xs font-bold uppercase tracking-wider">Affiliation:</p>
+                            <p className="text-yellow-500 font-bold text-sm">{character.affiliation}</p>
+                        </div>
                     </div>
                 </div>
             </div>

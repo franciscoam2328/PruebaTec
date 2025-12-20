@@ -72,21 +72,21 @@ export function EditPage() {
 
     return (
         <div className="max-w-2xl mx-auto">
-            <Link to={`/character/${id}`} className="inline-flex items-center text-gray-600 hover:text-orange-500 mb-6 transition-colors">
+            <Link to={`/character/${id}`} className="inline-flex items-center text-gray-400 hover:text-yellow-500 mb-6 transition-colors font-medium">
                 <ArrowLeft className="w-4 h-4 mr-2" />
                 Back to Details
             </Link>
 
-            <div className="bg-white rounded-2xl shadow-xl p-8">
-                <h1 className="text-3xl font-bold text-gray-900 mb-6">Edit Character</h1>
+            <div className="bg-slate-800 rounded-2xl shadow-xl p-8 border border-slate-700">
+                <h1 className="text-3xl font-bold text-white mb-6">Edit Character</h1>
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Name</label>
                             <input
                                 {...register('name')}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
                             />
                             {errors.name && (
                                 <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
@@ -94,10 +94,10 @@ export function EditPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Race</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Race</label>
                             <input
                                 {...register('race')}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
                             />
                             {errors.race && (
                                 <p className="mt-1 text-sm text-red-500">{errors.race.message}</p>
@@ -105,10 +105,10 @@ export function EditPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Ki</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Ki</label>
                             <input
                                 {...register('ki')}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
                             />
                             {errors.ki && (
                                 <p className="mt-1 text-sm text-red-500">{errors.ki.message}</p>
@@ -116,15 +116,15 @@ export function EditPage() {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-1">Gender</label>
                             <select
                                 {...register('gender')}
-                                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all bg-white"
+                                className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all"
                             >
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Unknown">Unknown</option>
-                                <option value="Other">Other</option>
+                                <option value="Male" className="bg-slate-700">Male</option>
+                                <option value="Female" className="bg-slate-700">Female</option>
+                                <option value="Unknown" className="bg-slate-700">Unknown</option>
+                                <option value="Other" className="bg-slate-700">Other</option>
                             </select>
                             {errors.gender && (
                                 <p className="mt-1 text-sm text-red-500">{errors.gender.message}</p>
@@ -133,10 +133,10 @@ export function EditPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Affiliation</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Affiliation</label>
                         <input
                             {...register('affiliation')}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                            className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all placeholder-gray-500"
                         />
                         {errors.affiliation && (
                             <p className="mt-1 text-sm text-red-500">{errors.affiliation.message}</p>
@@ -144,11 +144,11 @@ export function EditPage() {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-1">Description</label>
                         <textarea
                             {...register('description')}
                             rows={4}
-                            className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all resize-none"
+                            className="w-full px-4 py-2 bg-slate-700 border border-slate-600 rounded-lg text-white focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all resize-none placeholder-gray-500"
                         />
                         {errors.description && (
                             <p className="mt-1 text-sm text-red-500">{errors.description.message}</p>
@@ -159,7 +159,7 @@ export function EditPage() {
                         <button
                             type="submit"
                             disabled={isUpdating}
-                            className="flex items-center px-6 py-3 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 focus:ring-4 focus:ring-orange-300 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-orange-500/30"
+                            className="flex items-center px-6 py-3 bg-yellow-500 text-slate-900 font-bold rounded-lg hover:bg-yellow-400 focus:ring-4 focus:ring-yellow-500/30 disabled:opacity-70 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-yellow-500/20"
                         >
                             {isUpdating ? (
                                 <>

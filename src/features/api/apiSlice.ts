@@ -91,7 +91,7 @@ export const apiSlice = createApi({
                 const createdChar = {
                     ...newChar,
                     id: Date.now(),
-                    image: 'https://web.dragonball-api.com/images-static/dragon-ball-z-logo.png',
+                    image: newChar.image || 'https://web.dragonball-api.com/images-static/dragon-ball-z-logo.png',
                     deletedAt: null
                 } as Character;
 

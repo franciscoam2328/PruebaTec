@@ -39,7 +39,10 @@ export function CharacterList() {
     return (
         <div>
             <div className="mb-8 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <h2 className="text-3xl font-bold text-gray-800">Characters</h2>
+                <div className="flex flex-col">
+                    <h2 className="text-4xl font-extrabold text-yellow-500 uppercase tracking-widest drop-shadow-sm">The Dragon Ball API</h2>
+
+                </div>
 
                 <div className="relative w-full sm:w-72">
                     <input
@@ -47,14 +50,14 @@ export function CharacterList() {
                         placeholder="Filter characters..."
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
-                        className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all"
+                        className="w-full pl-10 pr-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-all"
                     />
-                    <Search className="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                    <Search className="w-5 h-5 text-gray-500 absolute left-3 top-1/2 -translate-y-1/2" />
                 </div>
             </div>
 
             {filteredCharacters && filteredCharacters.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {filteredCharacters.map((character) => (
                         <CharacterCard key={character.id} character={character} />
                     ))}
@@ -66,21 +69,21 @@ export function CharacterList() {
             )}
 
             {/* Simple Pagination for Level 1/2 */}
-            <div className="mt-8 flex justify-center gap-4">
+            <div className="mt-12 flex justify-center gap-4">
                 <button
                     onClick={() => setPage(p => Math.max(1, p - 1))}
                     disabled={page === 1 || isFetching}
-                    className="px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-6 py-2 bg-slate-800 border border-slate-700 text-white rounded-md hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
                 >
                     Previous
                 </button>
-                <span className="flex items-center px-4 font-medium text-gray-700">
+                <span className="flex items-center px-4 font-bold text-yellow-500 text-lg">
                     Page {page} of {data?.meta.totalPages || 1}
                 </span>
                 <button
                     onClick={() => setPage(p => p + 1)}
                     disabled={page === (data?.meta.totalPages || 1) || isFetching}
-                    className="px-4 py-2 bg-white border border-gray-300 rounded-md hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    className="px-6 py-2 bg-slate-800 border border-slate-700 text-white rounded-md hover:bg-slate-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-semibold"
                 >
                     Next
                 </button>
